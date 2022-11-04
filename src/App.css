@@ -11,6 +11,11 @@
     padding: 0;
 }
 
+:root {
+    --primary-color: #1b97d8;
+    --primary-hover-color: #2288c8;
+}
+
 html,
 body {
     height: 100%;
@@ -38,4 +43,14 @@ button,
 textarea,
 select {
     font: inherit;
+}
+
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
 }
