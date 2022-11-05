@@ -13,7 +13,7 @@ export default function Header() {
             <h1>TaskHead</h1>
         </div>
 
-        <button className="header-button">GitHub</button>
+        <a className="header-link">GitHub</a>
 
     </div>
 
