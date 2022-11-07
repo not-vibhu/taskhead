@@ -13,7 +13,7 @@ export default function Header() {
             <h1>TaskHead</h1>
         </div>
 
-        <a className="header-link">GitHub</a>
+        <a href="https://github.com/nakulsharma15/taskhead" className="header-link">GitHub</a>
 
     </div>
 
