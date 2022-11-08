@@ -55,10 +55,6 @@
     color: var(--primary-color);
 }
 
-.task-item-float-div:hover {
-    cursor: pointer;
-}
-
 .task-item-action:hover {
     cursor: pointer;
 }
