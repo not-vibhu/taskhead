@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalProvider } from './Contexts/ModalContext';
+import { TaskProvider } from './Contexts/TaskContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ModalProvider>
-      <App />
-    </ModalProvider>
+    <TaskProvider>
+      <ModalProvider>
+        <App />
+      </ModalProvider>
+    </TaskProvider>
   </React.StrictMode>
 );
 
