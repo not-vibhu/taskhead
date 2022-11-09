@@ -44,8 +44,6 @@ export default function Modal() {
 
                     </div>
 
-
-
                     <div className="modal-actions">
 
                         <button className="add-button">Add Task</button>
