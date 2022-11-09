@@ -1,6 +1,9 @@
 import "./Styles/Modal.css";
+import { useModal } from "../Contexts/ModalContext";
 
 export default function Modal() {
+
+    const { setShowModal } = useModal();
 
     return (
         <div className="modal-bg">
@@ -48,7 +51,7 @@ export default function Modal() {
 
                         <button className="add-button">Add Task</button>
 
-                        <button className="cancel-button">Cancel</button>
+                        <button className="cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
 
                     </div>
 
