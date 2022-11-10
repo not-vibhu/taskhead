@@ -1,14 +1,24 @@
+import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import "./Styles/TaskItem.css";
 
-export default function TaskItem({task}) {
+export default function TaskItem({ task }) {
 
-    const { taskList, setTaskList } = useTask();
+    const { taskList, setTaskList, setTask } = useTask();
 
-    const deleteTask = (taskId) => {
+    const { setShowModal } = useModal();
+
+    const deleteTaskHandler = (taskId) => {
 
         const updatedTaskList = taskList.filter((task) => task.id !== taskId);
         setTaskList(updatedTaskList);
+    }
+
+    const editTaskHandler = (taskId) => {
+        const taskToBeEdited = taskList.find((task) => task.id === taskId);
+        setTask(taskToBeEdited);
+        setShowModal(true);
+
     }
 
     return (
@@ -36,14 +46,14 @@ export default function TaskItem({task}) {
 
                     <div className="task-item-action-div">
 
-                        <div className="task-item-action delete-action" onClick={() => deleteTask(task.id)}>
+                        <div className="task-item-action delete-action" onClick={() => deleteTaskHandler(task.id)}>
                             <span className="material-icons">
                                 delete
                             </span>
                             <p>Delete</p>
                         </div>
 
-                        <div className="task-item-action edit-action">
+                        <div className="task-item-action edit-action" onClick={() => editTaskHandler(task.id)}>
                             <span className="material-icons">
                                 edit
                             </span>

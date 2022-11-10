@@ -8,15 +8,36 @@ export default function Modal() {
 
     const { setShowModal } = useModal();
 
-    const {taskList, setTaskList} = useTask();
+    const sample = {
+        id: uuidv4(),
+        title: "",
+        description: ""
+    }
 
-    const [title, setTitle] = useState("");
+    const { task, setTask, taskList, setTaskList } = useTask();
 
-    const [description, setDescription] = useState("");
+    const addTask = () => {
 
-    const addTask = (title, description) => {
+        const isTaskEdited = taskList.find((taskInList) => taskInList.id === task.id);
 
-        setTaskList([...taskList, {id: uuidv4(), title, description}])
+        if (isTaskEdited) {
+
+            let updatedTaskList = taskList.map((taskInList) => {
+                if (taskInList.id === isTaskEdited.id)
+                    return task
+                else
+                    return taskInList
+            });
+
+           setTaskList(updatedTaskList);
+
+        }
+
+        else {
+            setTaskList([...taskList, { ...task, id: uuidv4() }])
+        }
+
+        setTask(sample);
         setShowModal(false);
 
     }
@@ -36,7 +57,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Title:</p>
 
-                        <input type="text" placeholder="Enter title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <input type="text" placeholder="Enter title" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} />
 
                     </div>
 
@@ -59,13 +80,13 @@ export default function Modal() {
 
                         <p className="task-input-title">Description:</p>
 
-                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask({ ...task, description: e.target.value })}></textarea>
 
                     </div>
 
                     <div className="modal-actions">
 
-                        <button className="add-button" onClick={() => addTask(title, description)}>Add Task</button>
+                        <button className="add-button" onClick={() => addTask()}>Add Task</button>
 
                         <button className="cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
 
