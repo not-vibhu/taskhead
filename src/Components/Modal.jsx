@@ -23,13 +23,15 @@ export default function Modal() {
         if (isTaskEdited) {
 
             let updatedTaskList = taskList.map((taskInList) => {
-                if (taskInList.id === isTaskEdited.id)
+                if (taskInList.id === isTaskEdited.id) {
                     return task
-                else
+                }
+                else {
                     return taskInList
+                }
             });
 
-           setTaskList(updatedTaskList);
+            setTaskList(updatedTaskList);
 
         }
 
