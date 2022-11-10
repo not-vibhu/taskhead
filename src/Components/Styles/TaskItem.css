@@ -55,6 +55,13 @@
     color: var(--primary-color);
 }
 
+.task-item-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .task-item-action:hover {
     cursor: pointer;
 }
@@ -78,6 +85,10 @@
         align-items: flex-start;
         justify-content: flex-start;
         gap: 1rem;
+    }
+
+    .task-item-action p {
+        display: none;
     }
 
 }

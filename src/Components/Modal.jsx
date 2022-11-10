@@ -1,9 +1,25 @@
 import "./Styles/Modal.css";
+import { useState } from "react";
 import { useModal } from "../Contexts/ModalContext";
+import { useTask } from "../Contexts/TaskContext";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Modal() {
 
     const { setShowModal } = useModal();
+
+    const {taskList, setTaskList} = useTask();
+
+    const [title, setTitle] = useState("");
+
+    const [description, setDescription] = useState("");
+
+    const addTask = (title, description) => {
+
+        setTaskList([...taskList, {id: uuidv4(), title, description}])
+        setShowModal(false);
+
+    }
 
     return (
         <div className="modal-bg">
@@ -20,7 +36,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Title:</p>
 
-                        <input type="text" placeholder="Enter title" />
+                        <input type="text" placeholder="Enter title" value={title} onChange={(e) => setTitle(e.target.value)} />
 
                     </div>
 
@@ -43,13 +59,13 @@ export default function Modal() {
 
                         <p className="task-input-title">Description:</p>
 
-                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description"></textarea>
+                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
 
                     </div>
 
                     <div className="modal-actions">
 
-                        <button className="add-button">Add Task</button>
+                        <button className="add-button" onClick={() => addTask(title, description)}>Add Task</button>
 
                         <button className="cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
 
