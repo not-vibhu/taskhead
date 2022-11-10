@@ -24,10 +24,10 @@ export default function Modal() {
 
             let updatedTaskList = taskList.map((taskInList) => {
                 if (taskInList.id === isTaskEdited.id) {
-                    return task
+                    return task;
                 }
                 else {
-                    return taskInList
+                    return taskInList;
                 }
             });
 
