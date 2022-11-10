@@ -1,14 +1,15 @@
+import { useTask } from "../Contexts/TaskContext";
 import "./Styles/TaskItem.css";
 
 export default function TaskItem({task}) {
 
-    // let task = {
-    //     taskName: "I want to do the task for myself and my team anda I want to do the task for myself and my team andaa",
-    //     subTask: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-    //     description: "I want to do this task as a part of a recruitment process I want to do this task as a part of a recruitment process I want to do this task as a part of a recruitment process recruitment processprocess",
-    //     priority: "Medium"
+    const { taskList, setTaskList } = useTask();
 
-    // }
+    const deleteTask = (taskId) => {
+
+        const updatedTaskList = taskList.filter((task) => task.id !== taskId);
+        setTaskList(updatedTaskList);
+    }
 
     return (
         <div className="task-item-div">
@@ -35,7 +36,7 @@ export default function TaskItem({task}) {
 
                     <div className="task-item-action-div">
 
-                        <div className="task-item-action delete-action">
+                        <div className="task-item-action delete-action" onClick={() => deleteTask(task.id)}>
                             <span className="material-icons">
                                 delete
                             </span>
