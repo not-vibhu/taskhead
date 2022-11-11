@@ -12,7 +12,8 @@ export default function Modal() {
         id: uuidv4(),
         title: "",
         priority: "Low",
-        description: ""
+        description: "",
+        subTasks: []
     }
 
     const { task, setTask, taskList, setTaskList } = useTask();

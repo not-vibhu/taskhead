@@ -11,7 +11,8 @@ const TaskProvider = ({children}) => {
         id: uuidv4(),
         title: "",
         priority: "Low",
-        description: ""
+        description: "",
+        subTasks: []
     }
 
     const [task, setTask] = useState(sample);

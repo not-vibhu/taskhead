@@ -39,7 +39,7 @@ export default function TaskItem({ task }) {
                         </div>
 
                         <div className="task-item-float-div">
-                            <p>Sub-tasks: 10</p>
+                            <p>Sub-tasks: {task.subTasks.length}</p>
                         </div>
 
                     </div>
