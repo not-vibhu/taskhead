@@ -1,4 +1,5 @@
 import "./Styles/Modal.css";
+import { useState } from "react";
 import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { v4 as uuidv4 } from "uuid";
@@ -14,6 +15,13 @@ export default function Modal() {
         description: "",
         subTasks: []
     }
+
+    const subTaskSample = {
+        id: uuidv4(),
+        content: ""
+    }
+
+    const [subTask, setSubTask] = useState(subTaskSample);
 
     const { task, setTask, taskList, setTaskList } = useTask();
 
@@ -31,9 +39,7 @@ export default function Modal() {
                     return taskInList;
                 }
             });
-
             setTaskList(updatedTaskList);
-
         }
 
         else {
@@ -43,6 +49,17 @@ export default function Modal() {
         setTask(sample);
         setShowModal(false);
 
+    }
+
+    const addSubTask = () => {
+        let updatedSubTasksList = [...task.subTasks, {...subTask, id: uuidv4()}]
+        setTask({...task, subTasks: updatedSubTasksList});
+    }
+
+    const deleteSubTask = (subTaskId) => {
+
+        let updatedSubTasksList = task.subTasks.filter((sub) => sub.id !== subTaskId);
+        setTask({...task, subTasks: updatedSubTasksList});
     }
 
     return (
@@ -92,9 +109,9 @@ export default function Modal() {
                         <p className="task-input-title">Sub-tasks:</p>
 
                         <div className="subtask-input">
-                            <input type="text" placeholder="Enter title" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} />
+                            <input type="text" placeholder="Enter title" value={subTask.content} onChange={(e) => setSubTask({ ...subTask, content: e.target.value })} />
 
-                            <button className="subtask-button">
+                            <button className="subtask-button" onClick={addSubTask}>
                                 <span className="material-icons-outlined">
                                     add_task
                                 </span>
@@ -102,8 +119,14 @@ export default function Modal() {
 
                         </div>
 
-                        <div>
-                            <li>Hello</li>
+                        <div className="subtask-list-div">
+                            {task.subTasks.map((subTaskInList) => <div className="subtask-item-div" key={subTaskInList.id}>
+                                <p> {subTaskInList.content} </p>
+                                <span className="material-icons-outlined" onClick={() => deleteSubTask(subTaskInList.id)}>
+                                    remove_circle_outline
+                                </span>
+                                
+                            </div>)}
                         </div>
 
                     </div>
