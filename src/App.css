@@ -61,20 +61,3 @@ select {
     justify-content: center;
     align-items: center;
 }
-
-.empty-tasklist-message-div h1{
-    color: var(--primary-color);
-}
-
-.empty-tasklist-message-div p{
-    color: gray;
-}
-
-.homepage-sub-div {
-    margin: 1rem;
-    border-bottom: 1px solid #cccccc;
-}
-
-.add-task-button {
-    padding: 0;
-}

@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 import { ModalProvider } from './Contexts/ModalContext';
 import { TaskProvider } from './Contexts/TaskContext';
+import { FilterProvider } from './Contexts/FilterContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,9 @@ root.render(
     <Router>
       <TaskProvider>
         <ModalProvider>
-          <App />
+          <FilterProvider>
+            <App />
+          </FilterProvider>
         </ModalProvider>
       </TaskProvider>
     </Router>
