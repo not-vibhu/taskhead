@@ -14,11 +14,11 @@ export default function HomePage() {
 
   const { taskList } = useTask();
 
-  const {filter} = useFilter();
+  const { filter } = useFilter();
 
   let filteredTaskList = taskList;
 
-  if(filter !== "All") {
+  if (filter !== "All") {
     filteredTaskList = taskList.filter((task) => task.priority === filter);
   }
 
@@ -34,7 +34,11 @@ export default function HomePage() {
 
           <Filters />
 
-          <button onClick={() => setShowModal(true)} className="add-task-button">Add a new task</button>
+          <button onClick={() => setShowModal(true)} className="add-task-button">
+            Add a new task
+            <span className="material-icons-outlined">
+              add_task
+            </span></button>
         </div>
 
 

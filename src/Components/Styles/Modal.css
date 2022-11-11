@@ -23,6 +23,8 @@
     background-color: white;
     border-radius: 0.25rem;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+    height: 30rem;
+    overflow-y: auto;
 }
 
 .modal-header {
@@ -93,6 +95,35 @@
 
 .task-input-container textarea:focus {
     outline: none;
+    border: 2px solid var(--primary-color);
+}
+
+.subtask-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.subtask-input input{
+    width: 20rem;
+}
+
+.subtask-button {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    padding: 0rem 0.25rem;
+    background-color: transparent;
+    border: 2px solid #acacac;
+}
+
+.subtask-button span {
+    font-size: 2rem;
+}
+
+.subtask-button:hover {
+    cursor: pointer;
+    color: var(--primary-hover-color);
     border: 2px solid var(--primary-color);
 }
 

@@ -1,5 +1,4 @@
 import "./Styles/Modal.css";
-import { useState } from "react";
 import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { v4 as uuidv4 } from "uuid";
@@ -18,9 +17,9 @@ export default function Modal() {
 
     const { task, setTask, taskList, setTaskList } = useTask();
 
-    const addTask = () => {
+    const isTaskEdited = taskList.find((taskInList) => taskInList.id === task.id);
 
-        const isTaskEdited = taskList.find((taskInList) => taskInList.id === task.id);
+    const addTask = () => {
 
         if (isTaskEdited) {
 
@@ -54,7 +53,7 @@ export default function Modal() {
                 <div className="modal">
 
                     <div className="modal-header">
-                        <p>Add a Task</p>
+                        {isTaskEdited ? <p>Edit this task</p> : <p>Add a Task</p>}
                     </div>
 
                     <div className="task-input-container">
@@ -69,7 +68,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Priority:</p>
 
-                        <select value={task.priority} onChange={(e) => setTask({...task, priority: e.target.value})} >
+                        <select value={task.priority} onChange={(e) => setTask({ ...task, priority: e.target.value })} >
                             <option value="Low"> Low
                             </option>
                             <option value="Medium"> Medium
@@ -88,9 +87,30 @@ export default function Modal() {
 
                     </div>
 
+                    <div className="task-input-container">
+
+                        <p className="task-input-title">Sub-tasks:</p>
+
+                        <div className="subtask-input">
+                            <input type="text" placeholder="Enter title" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} />
+
+                            <button className="subtask-button">
+                                <span className="material-icons-outlined">
+                                    add_task
+                                </span>
+                            </button>
+
+                        </div>
+
+                        <div>
+                            <li>Hello</li>
+                        </div>
+
+                    </div>
+
                     <div className="modal-actions">
 
-                        <button className="add-button" onClick={() => addTask()}>Add Task</button>
+                        {isTaskEdited ? <button className="add-button" onClick={() => addTask()}>Update Task</button> : <button className="add-button" onClick={() => addTask()}>Add Task</button>}
 
                         <button className="cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
 
