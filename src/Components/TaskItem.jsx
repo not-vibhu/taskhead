@@ -35,7 +35,7 @@ export default function TaskItem({ task }) {
                     <div className="task-item-sub-info">
 
                         <div className="task-item-float-div">
-                            <p>Priority: Low</p>
+                            <p>Priority: {task.priority}</p>
                         </div>
 
                         <div className="task-item-float-div">

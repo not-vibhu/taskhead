@@ -11,6 +11,7 @@ export default function Modal() {
     const sample = {
         id: uuidv4(),
         title: "",
+        priority: "Low",
         description: ""
     }
 
@@ -67,7 +68,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Priority:</p>
 
-                        <select>
+                        <select value={task.priority} onChange={(e) => setTask({...task, priority: e.target.value})} >
                             <option value="Low"> Low
                             </option>
                             <option value="Medium"> Medium

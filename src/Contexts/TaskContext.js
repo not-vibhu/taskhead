@@ -10,6 +10,7 @@ const TaskProvider = ({children}) => {
     const sample = {
         id: uuidv4(),
         title: "",
+        priority: "Low",
         description: ""
     }
 
