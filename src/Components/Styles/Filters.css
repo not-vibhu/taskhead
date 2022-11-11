@@ -1,0 +1,35 @@
+.filter-div {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-text {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.filter-pill-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-pill {
+    max-width: max-content;
+    border: 1px solid black;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.active-filter {
+    background-color: black;
+    color: white;
+}
+
+.filter-pill:hover {
+    cursor: pointer;
+}

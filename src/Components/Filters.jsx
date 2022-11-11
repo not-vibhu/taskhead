@@ -9,12 +9,12 @@ export default function Filters() {
 
     return (
         <div className="filter-div">
-            <p>Filters</p>
+            <p className="filter-text">Filter by priority: </p>
 
-            <div>
+            <div className="filter-pill-div">
 
-                {filterList.map((filterItem) => <div className={`filter-pill`} onClick={() => setFilter(filterItem)}>
-                    {filterItem}
+                {filterList.map((filterItem) => <div className={`filter-pill ${filter === filterItem ? "active-filter" : null}`} onClick={() => setFilter(filterItem)}>
+                    <p>{filterItem}</p>
                 </div>
                 )}
 

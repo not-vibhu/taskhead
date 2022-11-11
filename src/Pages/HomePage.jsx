@@ -6,7 +6,6 @@ import Filters from "../Components/Filters";
 import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import { useFilter } from "../Contexts/FilterContext";
-import { useState } from "react";
 
 
 export default function HomePage() {
