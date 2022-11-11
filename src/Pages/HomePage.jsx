@@ -9,16 +9,22 @@ export default function HomePage() {
 
   const { showModal, setShowModal } = useModal();
 
-  const {taskList} = useTask();
+  const { taskList } = useTask();
 
   return (
     <div>
       {showModal && <Modal />}
 
       <Header />
-      <button onClick={() => setShowModal(true)}>Add Task</button>
 
-      {taskList?.map((task) => <TaskItem task={task} key={task.id} />)}
+      <div className="homepage-sub-div">
+        <button onClick={() => setShowModal(true)} className="add-task-button">Add Task</button>
+      </div>
+
+      {taskList.length !== 0 ? taskList?.map((task) => <TaskItem task={task} key={task.id} />) : <div className="flex-column-center empty-tasklist-message-div">
+        <h1>No tasks yet</h1>
+        <p>Tasks you add will appear here</p>
+      </div>}
     </div>
   )
 }
