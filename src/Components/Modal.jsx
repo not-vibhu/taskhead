@@ -29,31 +29,39 @@ export default function Modal() {
 
     const addTask = () => {
 
-        if (isTaskEdited) {
-
-            let updatedTaskList = taskList.map((taskInList) => {
-                if (taskInList.id === isTaskEdited.id) {
-                    return task;
-                }
-                else {
-                    return taskInList;
-                }
-            });
-            setTaskList(updatedTaskList);
+        if (task.title.length === 0 || task.description.length === 0) {
+            return;
         }
 
         else {
-            setTaskList([...taskList, { ...task, id: uuidv4() }])
+
+
+            if (isTaskEdited) {
+
+                let updatedTaskList = taskList.map((taskInList) => {
+                    if (taskInList.id === isTaskEdited.id) {
+                        return task;
+                    }
+                    else {
+                        return taskInList;
+                    }
+                });
+                setTaskList(updatedTaskList);
+            }
+
+            else {
+                setTaskList([...taskList, { ...task, id: uuidv4() }])
+            }
+
+            setTask(sample);
+            setShowModal(false);
+
         }
-
-        setTask(sample);
-        setShowModal(false);
-
     }
 
     const addSubTask = () => {
 
-        if(subTask.content.length > 100) {
+        if (subTask.content.length > 100) {
             return;
         }
         else {
@@ -87,6 +95,8 @@ export default function Modal() {
 
                         <input type="text" placeholder="Enter title" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} />
 
+                        {task.title.length === 0 ? <p className="subtask-length-overflow">* Title should not be empty</p> : null}
+
                     </div>
 
                     <div className="priority-input-container">
@@ -109,6 +119,8 @@ export default function Modal() {
                         <p className="task-input-title">Description:</p>
 
                         <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask({ ...task, description: e.target.value })}></textarea>
+
+                        {task.description.length === 0 ? <p className="subtask-length-overflow">* Description should not be empty</p> : null}
 
                     </div>
 
