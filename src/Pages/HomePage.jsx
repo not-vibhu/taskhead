@@ -37,7 +37,7 @@ export default function HomePage() {
           <button onClick={() => setShowModal(true)} className="add-task-button">
             Add a new task
             <span className="material-icons-outlined">
-              add_task
+              add
             </span></button>
         </div>
 

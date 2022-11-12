@@ -52,14 +52,15 @@ export default function Modal() {
     }
 
     const addSubTask = () => {
-        let updatedSubTasksList = [...task.subTasks, {...subTask, id: uuidv4()}]
-        setTask({...task, subTasks: updatedSubTasksList});
+        let updatedSubTasksList = [...task.subTasks, { ...subTask, id: uuidv4() }]
+        setTask({ ...task, subTasks: updatedSubTasksList });
+        setSubTask(subTaskSample);
     }
 
     const deleteSubTask = (subTaskId) => {
 
         let updatedSubTasksList = task.subTasks.filter((sub) => sub.id !== subTaskId);
-        setTask({...task, subTasks: updatedSubTasksList});
+        setTask({ ...task, subTasks: updatedSubTasksList });
     }
 
     return (
@@ -112,21 +113,30 @@ export default function Modal() {
                             <input type="text" placeholder="Enter title" value={subTask.content} onChange={(e) => setSubTask({ ...subTask, content: e.target.value })} />
 
                             <button className="subtask-button" onClick={addSubTask}>
-                                <span className="material-icons-outlined">
-                                    add_task
+                                <span class="material-icons-outlined">
+                                    add
                                 </span>
                             </button>
 
                         </div>
 
                         <div className="subtask-list-div">
+
                             {task.subTasks.map((subTaskInList) => <div className="subtask-item-div" key={subTaskInList.id}>
-                                <p> {subTaskInList.content} </p>
+
+                                <div className="subtask-content-div">
+                                    <span className="material-icons">
+                                        circle
+                                    </span>
+                                    <p> {subTaskInList.content} </p>
+                                </div>
+
                                 <span className="material-icons-outlined" onClick={() => deleteSubTask(subTaskInList.id)}>
                                     remove_circle_outline
                                 </span>
-                                
+
                             </div>)}
+
                         </div>
 
                     </div>
