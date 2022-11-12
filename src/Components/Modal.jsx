@@ -52,9 +52,16 @@ export default function Modal() {
     }
 
     const addSubTask = () => {
-        let updatedSubTasksList = [...task.subTasks, { ...subTask, id: uuidv4() }]
-        setTask({ ...task, subTasks: updatedSubTasksList });
-        setSubTask(subTaskSample);
+
+        if(subTask.content.length > 100) {
+            return;
+        }
+        else {
+
+            let updatedSubTasksList = [...task.subTasks, { ...subTask, id: uuidv4() }]
+            setTask({ ...task, subTasks: updatedSubTasksList });
+            setSubTask(subTaskSample);
+        }
     }
 
     const deleteSubTask = (subTaskId) => {
@@ -119,6 +126,8 @@ export default function Modal() {
                             </button>
 
                         </div>
+
+                        <p className={`${subTask.content.length > 100 ? 'subtask-length-overflow' : null}`}>(<span>{subTask.content.length}</span>/100)</p>
 
                         <div className="subtask-list-div">
 
