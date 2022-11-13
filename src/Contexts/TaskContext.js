@@ -19,7 +19,9 @@ const TaskProvider = ({children}) => {
 
     const [taskList, setTaskList] = useState([]);
 
-    return ( <TaskContext.Provider value={{task, setTask, taskList, setTaskList}}>
+    const [selectedTask, setSelectedTask] = useState(sample);
+
+    return ( <TaskContext.Provider value={{task, setTask, taskList, setTaskList, selectedTask, setSelectedTask}}>
         {children}
     </TaskContext.Provider> )
 
