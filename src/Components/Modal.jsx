@@ -132,7 +132,7 @@ export default function Modal() {
                             <input type="text" placeholder="Enter title" value={subTask.content} onChange={(e) => setSubTask({ ...subTask, content: e.target.value })} />
 
                             <button className="subtask-button" onClick={addSubTask}>
-                                <span class="material-icons-outlined">
+                                <span className="material-icons-outlined">
                                     add
                                 </span>
                             </button>
