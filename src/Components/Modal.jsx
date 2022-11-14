@@ -13,7 +13,7 @@ export default function Modal() {
         title: "",
         priority: "Low",
         description: "",
-        focusDuration: "15",
+        focusDuration: "10",
         breakDuration: "5",
         subTasks: []
     }
@@ -95,7 +95,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Title:</p>
 
-                        <input type="text" placeholder="Enter title" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} />
+                        <input type="text" placeholder="Enter title" value={task.title} onChange={(e) => setTask((task) => ({ ...task, title: e.target.value }))} />
 
                         {task.title.length === 0 ? <p className="subtask-length-overflow">* Title should not be empty</p> : null}
 
@@ -105,7 +105,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Priority:</p>
 
-                        <select value={task.priority} onChange={(e) => setTask({ ...task, priority: e.target.value })} >
+                        <select value={task.priority} onChange={(e) => setTask((task) => ({ ...task, priority: e.target.value }))} >
                             <option value="Low"> Low
                             </option>
                             <option value="Medium"> Medium
@@ -120,7 +120,7 @@ export default function Modal() {
 
                         <p className="task-input-title">Description:</p>
 
-                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask({ ...task, description: e.target.value })}></textarea>
+                        <textarea className="task-desc" name="task-description" id="" cols="5" rows="3" placeholder="Enter Description" value={task.description} onChange={(e) => setTask((task) => ({ ...task, description: e.target.value }))}></textarea>
 
                         {task.description.length === 0 ? <p className="subtask-length-overflow">* Description should not be empty</p> : null}
 
@@ -128,10 +128,71 @@ export default function Modal() {
 
                     <div className="task-input-container">
 
+                        <p className="task-input-title">Focus Duration:</p>
+
+                        <input
+                            type="range"
+                            min="10"
+                            max="30"
+                            step="5"
+                            name="focusDuration"
+                            id="focusDuration"
+                            value={task.focusDuration}
+                            list="tickmarks"
+                            className="slider"
+                            onChange={(e) => setTask((task) => ({ ...task, focusDuration: e.target.value }))}
+                        />
+                        <datalist id="tickmarks">
+                            <option value="10" label="10m"></option>
+                            <option value="15" label="15m"></option>
+                            <option value="20" label="20m"></option>
+                            <option value="25" label="25m"></option>
+                            <option value="30" label="30m"></option>
+                        </datalist>
+
+                        <div>
+                            <h4 className="duration-input-text" >Duration: <span className="duration-input-sub-text">{task.focusDuration} minutes</span></h4>
+                        </div>
+
+                    </div>
+
+
+                    <div className="task-input-container">
+
+                        <p className="task-input-title">Break Duration:</p>
+
+                        <input
+                            type="range"
+                            min="5"
+                            max="20"
+                            step="5"
+                            name="breakDuration"
+                            id="breakDuration"
+                            value={task.breakDuration}
+                            list="tickmarks"
+                            className="slider"
+                            onChange={(e) => setTask((task) => ({ ...task, breakDuration: e.target.value }))}
+                        />
+                        <datalist id="tickmarks">
+                            <option value="5" label="10m"></option>
+                            <option value="10" label="15m"></option>
+                            <option value="15" label="20m"></option>
+                            <option value="20" label="25m"></option>
+                        </datalist>
+
+                        <div>
+                            <h4 className="duration-input-text" >Duration: <span className="duration-input-sub-text">{task.breakDuration} minutes</span></h4>
+                        </div>
+
+                    </div>
+
+
+                    <div className="task-input-container">
+
                         <p className="task-input-title">Sub-tasks:</p>
 
                         <div className="subtask-input">
-                            <input type="text" placeholder="Enter title" value={subTask.content} onChange={(e) => setSubTask({ ...subTask, content: e.target.value })} />
+                            <input type="text" placeholder="Enter title" value={subTask.content} onChange={(e) => setSubTask((subTask) => ({ ...subTask, content: e.target.value }))} />
 
                             <button className="subtask-button" onClick={addSubTask}>
                                 <span className="material-icons-outlined">

@@ -10,7 +10,7 @@ export default function PomodoroPage() {
     return (
         <div>
             <Header />
-            <PomodoroTimer />
+            <PomodoroTimer focusDuration={selectedTask.focusDuration} breakDuration={selectedTask.breakDuration}/>
 
             <div className="task-display-div">
 

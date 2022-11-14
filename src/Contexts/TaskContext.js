@@ -12,7 +12,7 @@ const TaskProvider = ({children}) => {
         title: "",
         priority: "Low",
         description: "",
-        focusDuration: "15",
+        focusDuration: "10",
         breakDuration: "5",
         subTasks: []
     }

@@ -1,10 +1,7 @@
 import "./Styles/PomodoroTimer.css";
 import { useState, useRef, useEffect } from "react";
 
-export default function PomodoroTimer() {
-
-  let focusDuration = "1";
-  let breakDuration = "0.5";
+export default function PomodoroTimer({ focusDuration, breakDuration }) {
 
   const focusMinutes = Number(focusDuration);
   const breakMinutes = Number(breakDuration);
