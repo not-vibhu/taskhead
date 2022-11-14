@@ -44,11 +44,6 @@ export default function PomodoroPage() {
 
                 </div>
 
-
-
-
-
-
             </div>
         </div>
     )
