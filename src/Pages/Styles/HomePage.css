@@ -11,6 +11,11 @@
     border-bottom: 1px solid #cccccc;
 }
 
+.message-text {
+    font-style: italic;
+    color: gray;
+}
+
 .homepage-sub-div {
     display: flex;
     justify-content: space-between;
