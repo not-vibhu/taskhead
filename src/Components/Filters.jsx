@@ -9,7 +9,9 @@ export default function Filters() {
 
     return (
         <div className="filter-div">
-            <p className="filter-text">Filter by priority: </p>
+            <div>
+                <p className="filter-text">Filter by priority: </p>
+            </div>
 
             <div className="filter-pill-div">
 

@@ -12,6 +12,8 @@ const TaskProvider = ({children}) => {
         title: "",
         priority: "Low",
         description: "",
+        focusDuration: "10",
+        breakDuration: "5",
         subTasks: []
     }
 
@@ -19,7 +21,9 @@ const TaskProvider = ({children}) => {
 
     const [taskList, setTaskList] = useState([]);
 
-    return ( <TaskContext.Provider value={{task, setTask, taskList, setTaskList}}>
+    const [selectedTask, setSelectedTask] = useState(sample);
+
+    return ( <TaskContext.Provider value={{task, setTask, taskList, setTaskList, selectedTask, setSelectedTask}}>
         {children}
     </TaskContext.Provider> )
 

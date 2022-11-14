@@ -26,6 +26,10 @@
     gap: 1.25rem;
 }
 
+.task-item-name:hover {
+    cursor: pointer;
+}
+
 .task-item-float-div {
     max-width: max-content;
     border: 1px solid black;
@@ -43,6 +47,7 @@
 .task-item-action-div span {
     font-size: 1.75rem;
 }
+
 .task-item-action-div p {
     font-size: 0.75rem;
 }
@@ -92,4 +97,3 @@
     }
 
 }
-

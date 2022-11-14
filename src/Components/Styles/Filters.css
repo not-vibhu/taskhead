@@ -33,3 +33,9 @@
 .filter-pill:hover {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 650px) {
+    .filter-div {
+        flex-direction: column;
+    }
+}

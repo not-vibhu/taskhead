@@ -36,7 +36,7 @@
 }
 
 .task-input-container {
-    margin: 1.25rem 1rem; 
+    margin: 1.25rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,13 +99,21 @@
     border: 2px solid var(--primary-color);
 }
 
+.duration-input-text {
+    color: #5a5a5a;
+}
+
+.duration-input-sub-text {
+    color: var(--primary-color);
+}
+
 .subtask-input {
     display: flex;
     align-items: center;
     gap: 0.25rem;
 }
 
-.subtask-input input{
+.subtask-input input {
     width: 20rem;
     border-top-right-radius: 0rem;
     border-bottom-right-radius: 0rem;
@@ -157,7 +165,6 @@
 
 .subtask-content-div {
     width: 25rem;
-    border: 1px solid red;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -213,4 +220,49 @@
 
 .cancel-button:hover {
     color: #dc2626;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .modal {
+        width: 25rem;
+    }
+
+    .task-input-container input {
+        width: 20rem;
+    }
+
+    .task-input-container textarea {
+        width: 20rem;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+
+    .modal {
+        width: 20rem;
+    }
+
+    .task-input-container input {
+        width: 15rem;
+    }
+
+    .task-input-container textarea {
+        width: 15rem;
+    }
+
+    .subtask-item-div {
+        width: 15rem;
+        justify-content: center;
+    }
+
+    .subtask-content-div {
+        width: 15rem;
+        gap: 0.25rem;
+    }
+
+    .subtask-content-div p{
+        width: 10rem;
+    }
 }

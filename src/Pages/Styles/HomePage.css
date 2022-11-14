@@ -11,6 +11,11 @@
     border-bottom: 1px solid #cccccc;
 }
 
+.message-text {
+    font-style: italic;
+    color: gray;
+}
+
 .homepage-sub-div {
     display: flex;
     justify-content: space-between;
@@ -41,4 +46,10 @@
 .add-task-button:hover {
     background-color: var(--primary-hover-color);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+    .add-task-button p {
+        display: none;
+    }
 }

@@ -1,12 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../Contexts/ModalContext";
 import { useTask } from "../Contexts/TaskContext";
 import "./Styles/TaskItem.css";
 
 export default function TaskItem({ task }) {
 
-    const { taskList, setTaskList, setTask } = useTask();
+    const { taskList, setTaskList, setTask, setSelectedTask } = useTask();
 
     const { setShowModal } = useModal();
+
+    const navigate = useNavigate();
 
     const deleteTaskHandler = (taskId) => {
 
@@ -21,12 +24,17 @@ export default function TaskItem({ task }) {
 
     }
 
+    const startTaskHandler = () => {
+        setSelectedTask(task)
+        navigate("/pomodoro");
+    }
+
     return (
         <div className="task-item-div">
 
             <div className="task-item-main-info">
 
-                <h2 className="task-item-name">{task.title}</h2>
+                <h2 className="task-item-name" onClick={startTaskHandler}>{task.title}</h2>
                 <p className="task-item-description">{task.description}</p>
 
                 <div className="task-item-footer">
@@ -40,6 +48,14 @@ export default function TaskItem({ task }) {
 
                         <div className="task-item-float-div">
                             <p>Sub-tasks: {task.subTasks.length}</p>
+                        </div>
+
+                        <div className="task-item-float-div">
+                            <p>Focus Duration: {task.focusDuration} min</p>
+                        </div>
+
+                        <div className="task-item-float-div">
+                            <p>Break Duration: {task.breakDuration} min</p>
                         </div>
 
                     </div>
