@@ -50,6 +50,14 @@ export default function TaskItem({ task }) {
                             <p>Sub-tasks: {task.subTasks.length}</p>
                         </div>
 
+                        <div className="task-item-float-div">
+                            <p>Focus Duration: {task.focusDuration} min</p>
+                        </div>
+
+                        <div className="task-item-float-div">
+                            <p>Break Duration: {task.breakDuration} min</p>
+                        </div>
+
                     </div>
 
                     <div className="task-item-action-div">

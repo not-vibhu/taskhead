@@ -42,3 +42,9 @@
     background-color: var(--primary-hover-color);
     cursor: pointer;
 }
+
+@media only screen and (max-width: 500px) {
+    .add-task-button p {
+        display: none;
+    }
+}

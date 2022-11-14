@@ -14,23 +14,24 @@ export default function PomodoroPage() {
 
             <div className="task-display-div">
 
-                <div className="task-item-display-div">
+
+                {(selectedTask.title !== "") &&<div className="task-item-display-div">
                     <h2 className="task-item-header-div">
                         Task:
                     </h2>
                     <h3>{selectedTask.title}</h3>
-                </div>
+                </div>}
 
-                <div className="task-item-display-div">
+                {(selectedTask.description !== "") && <div className="task-item-display-div">
 
                     <h2 className="task-item-header-div">
                         Description:
                     </h2>
 
                     <p>{selectedTask.description}</p>
-                </div>
+                </div>}
 
-                <div className="task-item-display-div">
+                {(selectedTask.subTasks.length !== 0) && <div className="task-item-display-div">
 
                     <h2 className="task-item-header-div">
                         Sub-tasks:
@@ -42,7 +43,7 @@ export default function PomodoroPage() {
                         })}
                     </ul>
 
-                </div>
+                </div>}
 
             </div>
         </div>
