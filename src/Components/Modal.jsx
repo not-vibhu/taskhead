@@ -229,7 +229,7 @@ export default function Modal() {
 
                         {isTaskEdited ? <button className="add-button" onClick={() => addTask()}>Update Task</button> : <button className="add-button" onClick={() => addTask()}>Add Task</button>}
 
-                        <button className="cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
+                        <button className="cancel-button" onClick={() => {setShowModal(false); setTask(sample)}}>Cancel</button>
 
                     </div>
 
