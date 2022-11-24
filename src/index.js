@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
-import { ModalProvider } from './Contexts/ModalContext';
-import { TaskProvider } from './Contexts/TaskContext';
-import { FilterProvider } from './Contexts/FilterContext';
+import { ModalProvider } from "./Contexts/ModalContext";
+import { TaskProvider } from "./Contexts/TaskContext";
+import { FilterProvider } from "./Contexts/FilterContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
