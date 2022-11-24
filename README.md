@@ -2,20 +2,19 @@
 
 TaskHead is an easy-to-use task manager with integrated pomodoro timer that allows you to manage, prioritize tasks which helps you increase your productivity.
 
- <a href="https://taskhead.vercel.app/"><strong>Explore TaskHead</strong></a>
-  <br>
-  
- ## Features of TaskHead:
+<a href="https://taskhead.vercel.app/"><strong>Explore TaskHead</strong></a>
+<br>
+
+## Features of TaskHead:
 
 1. A easy on the eye homepage giving you the confidence needed to start your tasks.
 2. Ability to prioritize your tasks to ensure you first complete the tasks that matters the most.
 3. Add different focus and break durations for different tasks that helps you effectively manage your time and work on a task without distractions.
 4. Add subtasks to accurately assign resources to each tasks.
 5. Ability to control your time, easily start, pause or even restart your pomodoro session. You also have your task details right there, ensuring you always know what to achieve within the set time.
-<br>
+   <br>
 
 ## Steps to use TaskHead:
-
 
 1. Visit the app <a href="https://taskhead.vercel.app/">here.</a>
 2. Checkout the homepage, where you can create a new task, or edit an existing task.
@@ -27,8 +26,9 @@ TaskHead is an easy-to-use task manager with integrated pomodoro timer that allo
 <br>
 
 ## Use the app:
-  <a href="https://taskhead.vercel.app/"><strong>Explore TaskHead</strong></a>
-  
+
+<a href="https://taskhead.vercel.app/"><strong>Explore TaskHead</strong></a>
+
 ### Creator
 
 **Nakul Sharma**

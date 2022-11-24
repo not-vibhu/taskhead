@@ -1,12 +1,11 @@
-
 .task-item-header-div {
-    margin: 0.5rem 0rem;
-    font-style: italic;
-    color: var(--primary-color);
+  margin: 0.5rem 0rem;
+  font-style: italic;
+  color: var(--primary-color);
 }
 
 .task-item-display-div {
-    border-bottom: 1px solid #cccccc;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1rem;
+  border-bottom: 1px solid #cccccc;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
 }

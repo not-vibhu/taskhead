@@ -4,13 +4,14 @@ const FilterContext = createContext();
 
 const useFilter = () => useContext(FilterContext);
 
-const FilterProvider = ({children}) => {
+const FilterProvider = ({ children }) => {
+  const [filter, setFilter] = useState("All");
 
-    const [filter, setFilter] = useState("All");
-
-    return <FilterContext.Provider value={{filter, setFilter}}>
-        {children}
+  return (
+    <FilterContext.Provider value={{ filter, setFilter }}>
+      {children}
     </FilterContext.Provider>
-}
+  );
+};
 
-export {FilterProvider, useFilter};
+export { FilterProvider, useFilter };
